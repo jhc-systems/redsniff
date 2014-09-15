@@ -37,8 +37,8 @@ i.e. *on the browser, check that a dropdown whose 'name' attribute is "a_drop-do
 Here are some more - the syntax is designed so that what it does is obvious without explanation or comments :
 
     browser.goTo("http://www.wikipedia.org");
-    browser.type("clowns", ''into''( ''textBox()''.that(''hasName''("search"))));
-    browser.clickOn(''button''("OK"));
+    browser.type("clowns", into( textBox().that( hasName("search") ) ));
+    browser.clickOn( button("OK") );
 
 ###Feedback - a first class citizen
 redsniff puts a very high value on feedback - diagnostic messages that appear when assertions and expectations fail.
@@ -62,3 +62,21 @@ Some messages you could get from above examples are:
       '[s]earch'
 
 By contrast, using WebDriver directly would have resulted in just `ElementNotFoundException` in most cases, and it may take you some time to realise you had misspelled the element name.
+
+
+###Why 'redsniff'?
+Because, when your test fails and goes red, this can help you sniff out the reason.  Also, "_hamcrest_" is an anagram of "_matchers_", which is the core concept in that library, and so this is an anagram of "finders", which is the main concept in this library. 
+
+Well, nearly, there's an extra 'f' but nothing is ever perfect - which is why we need flexible test frameworks.
+
+##Goal
+redsniff aims to make the writing and understanding of the intent of tests easier, whilst diagnosing clearly why they fail, which is often a frustrating and time-consuming process when we first write the test.
+
+It also
+* allows for less brittle tests by allowing you to specify as much or as little as you need
+* is highly composable - expressions can be plugged together like Lego
+* deals with synchronization issues particularly for AJAX-enabled apps, where elements can appear and disappear
+* particular support for testing tables of data, including csv downloads
+* easy support for creating custom abstractions specific to your web app and domain
+
+Whatever you can express should do what you'd expect it to do by examining the expression.
