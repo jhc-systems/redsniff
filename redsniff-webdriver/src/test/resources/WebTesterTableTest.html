@@ -1,0 +1,1224 @@
+<html>
+<body>
+<table name="a_table" border="1">
+<thead>
+<tr>
+<th>Stock Code</th>
+<th>Stock Description</th>
+<th>Price</th>
+<th>Country</th>
+</thead>
+<tbody>
+<tr>
+<td>VOD.L</td><td>Vodafone</td><td>1.23</td><td>GB</td>
+</tr>
+<tr>
+<td>MKS.L</td><td>Marks And Spencer</td><td>4.56</td><td>GB</td>
+</tr>
+<tr>
+<td>TSCO.L</td><td>Tesco</td><td>7.89</td><td>GB</td>
+</tr>
+<tr>
+<td>MCD.L</td><td>McDonalds</td><td>7.89</td><td>US</td>
+</tr>
+</tbody>
+</table>
+<table name="a_table_with_nontext_cells" border="1">
+<thead>
+<tr>
+	<th>Stock Code</th>
+	<th class="icon icon-trade"><span/></th>
+	<th class="icon icon-research"><span/></th>
+	<th class="selection"><span><input type="checkbox" name="selectItemBoxHead" class="selections" "></span></th>
+</thead>
+<tbody>
+<tr>
+	<td>VOD.L</td> 
+	<td class="icon icon-trade"><span><a href="#" id="link70" title="Trade" onclick="doTrade('link70')"><img src="../content/images/icon_trade.gif"></a></span></td>
+	<td class="icon icon-research"><span><a id="link71" title="Research" href="research?isin=VODAFONEISIN"><img src="../content/images/icon_research.gif"></a></span></td>
+	<td class="selection"><span><input type="checkbox" name="selectItemBox1"  ></span></td>
+</tr>
+<tr>
+	<td>MKS.L</td>
+	<td class="icon icon-trade"><span><a href="#" id="link73"  title="Trade" onclick="doTrade('link73')"><img src="../content/images/icon_trade.gif"></a></span></td>
+	<td class="icon icon-research">	<span><a id="link71" title="Research" href="research?isin=MRKSSPNCRISIN"><img src="../content/images/icon_research.gif"></a></span></td>
+	<td class="selection"><span><input type="checkbox" name="selectItemBox2" checked="checked" ></span></td>
+</tr>
+</tbody>
+</table>
+
+<table name="a_bigger_table" border="1">
+<thead>
+  
+	<tr class="headers">
+		
+			<th class="wicket_orderNone stockCode"><a href="?wicket:interface=:330:container:components:panels:18:panel:watchListTable:topToolbars:2:toolbar:headers:1:header:orderByLink:1:ILinkListener::"><span>Stock Code</span></a></th>
+		
+			<th class="wicket_orderUp description"><a href="?wicket:interface=:330:container:components:panels:18:panel:watchListTable:topToolbars:2:toolbar:headers:2:header:orderByLink:1:ILinkListener::"><span>Stock Description</span></a></th>
+		
+			<th class="livebid rightAlign"><span>Bid</span></th>
+		
+			<th class="liveoffer rightAlign"><span>Offer</span></th>
+		
+			<th class="livemid rightAlign"><span>Mid</span></th>
+		
+			<th class="closemid rightAlign"><span>Close</span></th>
+		
+			<th class="change rightAlign"><span>Difference</span></th>
+		
+			<th class="wicket_orderNone percentChange rightAlign"><a href="?wicket:interface=:330:container:components:panels:18:panel:watchListTable:topToolbars:2:toolbar:headers:8:header:orderByLink:1:ILinkListener::"><span>Change</span></a></th>
+		
+			<th class="icon"><span></span></th>
+		
+			<th class="icon"><span></span></th>
+		
+			<th class="selection"><span id="id4e"><input type="checkbox" name="container:components:panels:18:panel:watchListTable:topToolbars:2:toolbar:headers:11:header:label:selectItemBox" class="selections" id="id4f" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:topToolbars:2:toolbar:headers:11:header:label:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id4f')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id4f') != null;}.bind(this));"></span></th>
+		
+	</tr>
+
+</thead>
+<tfoot>
+	
+</tfoot>
+<tbody>
+	<tr class="even">
+		<td class="stockCode">
+			<span>ADM.L</span>
+		</td><td class="description">
+			<span>ADMIRAL GROUP ORD GBP0.001</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 11.63</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 11.65</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 11.64</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 11.64</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id50" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:1:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id50') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id51" href="research?isin=GB00B02J6398" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:1:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id51') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:1:cells:11:cell:selectItemBox" class="selections" id="id52" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:1:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id52')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id52') != null;}.bind(this));"></span>
+		</td>
+	</tr>
+	<tr class="odd">
+		<td class="stockCode">
+			<span>AGK.L</span>
+		</td><td class="description">
+			<span>AGGREKO GBP0.20</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 16.25</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 16.27</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 16.26</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 16.26</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id53" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:2:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id53') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id54" href="research?isin=GB0001478998" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:2:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id54') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:2:cells:11:cell:selectItemBox" class="selections" id="id55" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:2:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id55')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id55') != null;}.bind(this));"></span>
+		</td>
+	</tr>
+	<tr class="even">
+		<td class="stockCode">
+			<span>AMEC.L</span>
+		</td><td class="description">
+			<span>AMEC ORD GBP0.50</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 11.02</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 11.04</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 11.03</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 11.03</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id56" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:3:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id56') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id57" href="research?isin=GB0000282623" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:3:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id57') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:3:cells:11:cell:selectItemBox" class="selections" id="id58" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:3:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id58')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id58') != null;}.bind(this));"></span>
+		</td>
+	</tr>
+	<tr class="odd">
+		<td class="stockCode">
+			<span>AAL.L</span>
+		</td><td class="description">
+			<span>ANGLO AMERICAN USD0.54945</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 24.59</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 24.60</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 24.60</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 24.60</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id59" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:4:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id59') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id5a" href="research?isin=GB00B1XZS820" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:4:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id5a') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:4:cells:11:cell:selectItemBox" class="selections" id="id5b" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:4:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id5b')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id5b') != null;}.bind(this));"></span>
+		</td>
+	</tr>
+	<tr class="even">
+		<td class="stockCode">
+			<span>ANTO.L</span>
+		</td><td class="description">
+			<span>ANTOFAGASTA ORD GBP0.05</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 0.02</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 0.01</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 0.01</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 0.01</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id5c" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:5:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id5c') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id5d" href="research?isin=GB0000456144" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:5:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id5d') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:5:cells:11:cell:selectItemBox" class="selections" id="id5e" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:5:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id5e')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id5e') != null;}.bind(this));"></span>
+		</td>
+	</tr>
+</tbody>
+</table>
+
+
+
+<table name="a_large_table_with_11_cols_34_rows" border="1">
+<thead>
+  
+	<tr class="headers">
+		
+			<th class="wicket_orderNone stockCode"><a href="?wicket:interface=:330:container:components:panels:18:panel:watchListTable:topToolbars:2:toolbar:headers:1:header:orderByLink:1:ILinkListener::"><span>Stock Code</span></a></th>
+		
+			<th class="wicket_orderUp description"><a href="?wicket:interface=:330:container:components:panels:18:panel:watchListTable:topToolbars:2:toolbar:headers:2:header:orderByLink:1:ILinkListener::"><span>Stock Description</span></a></th>
+		
+			<th class="livebid rightAlign"><span>Bid</span></th>
+		
+			<th class="liveoffer rightAlign"><span>Offer</span></th>
+		
+			<th class="livemid rightAlign"><span>Mid</span></th>
+		
+			<th class="closemid rightAlign"><span>Close</span></th>
+		
+			<th class="change rightAlign"><span>Difference</span></th>
+		
+			<th class="wicket_orderNone percentChange rightAlign"><a href="?wicket:interface=:330:container:components:panels:18:panel:watchListTable:topToolbars:2:toolbar:headers:8:header:orderByLink:1:ILinkListener::"><span>Change</span></a></th>
+		
+			<th class="icon"><span></span></th>
+		
+			<th class="icon"><span></span></th>
+		
+			<th class="selection"><span id="id4e"><input type="checkbox" name="container:components:panels:18:panel:watchListTable:topToolbars:2:toolbar:headers:11:header:label:selectItemBox" class="selections" id="id4f" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:topToolbars:2:toolbar:headers:11:header:label:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id4f')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id4f') != null;}.bind(this));"></span></th>
+		
+	</tr>
+
+</thead>
+<tfoot>
+	
+</tfoot>
+<tbody>
+	<tr class="even">
+		<td class="stockCode">
+			<span>ADM.L</span>
+		</td><td class="description">
+			<span>ADMIRAL GROUP ORD GBP0.001</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 11.63</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 11.65</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 11.64</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 11.64</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id50" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:1:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id50') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id51" href="research?isin=GB00B02J6398" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:1:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id51') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:1:cells:11:cell:selectItemBox" class="selections" id="id52" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:1:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id52')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id52') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="odd">
+		<td class="stockCode">
+			<span>AGK.L</span>
+		</td><td class="description">
+			<span>AGGREKO GBP0.20</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 16.25</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 16.27</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 16.26</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 16.26</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id53" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:2:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id53') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id54" href="research?isin=GB0001478998" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:2:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id54') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:2:cells:11:cell:selectItemBox" class="selections" id="id55" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:2:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id55')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id55') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="even">
+		<td class="stockCode">
+			<span>AMEC.L</span>
+		</td><td class="description">
+			<span>AMEC ORD GBP0.50</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 11.02</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 11.04</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 11.03</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 11.03</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id56" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:3:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id56') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id57" href="research?isin=GB0000282623" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:3:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id57') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:3:cells:11:cell:selectItemBox" class="selections" id="id58" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:3:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id58')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id58') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="odd">
+		<td class="stockCode">
+			<span>AAL.L</span>
+		</td><td class="description">
+			<span>ANGLO AMERICAN USD0.54945</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 24.59</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 24.60</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 24.60</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 24.60</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id59" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:4:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id59') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id5a" href="research?isin=GB00B1XZS820" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:4:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id5a') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:4:cells:11:cell:selectItemBox" class="selections" id="id5b" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:4:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id5b')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id5b') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="even">
+		<td class="stockCode">
+			<span>ANTO.L</span>
+		</td><td class="description">
+			<span>ANTOFAGASTA ORD GBP0.05</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 0.02</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 0.01</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 0.01</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 0.01</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id5c" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:5:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id5c') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id5d" href="research?isin=GB0000456144" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:5:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id5d') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:5:cells:11:cell:selectItemBox" class="selections" id="id5e" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:5:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id5e')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id5e') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="odd">
+		<td class="stockCode">
+			<span>AAPL.NQ</span>
+		</td><td class="description">
+			<span>APPLE INC COM NPV</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 595.79</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 595.81</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 595.80</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 595.80</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id5f" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:6:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id5f') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id60" href="research?isin=US0378331005" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:6:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id60') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:6:cells:11:cell:selectItemBox" class="selections" id="id61" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:6:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id61')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id61') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="even">
+		<td class="stockCode">
+			<span>ARM.L</span>
+		</td><td class="description">
+			<span>ARM HLDGS ORD GBP0.0005</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 5.93</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 5.94</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 5.94</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 5.94</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id62" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:7:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id62') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id63" href="research?isin=GB0000595859" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:7:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id63') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:7:cells:11:cell:selectItemBox" class="selections" id="id64" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:7:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id64')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id64') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="odd">
+		<td class="stockCode">
+			<span>ASHM.L</span>
+		</td><td class="description">
+			<span>ASHMORE GROUP ORD GBP0.01</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 3.77</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 3.77</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 3.77</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 3.77</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id65" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:8:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id65') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id66" href="research?isin=GB00B132NW22" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:8:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id66') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:8:cells:11:cell:selectItemBox" class="selections" id="id67" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:8:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id67')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id67') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="even">
+		<td class="stockCode">
+			<span>ABF.L</span>
+		</td><td class="description">
+			<span>ASSOCD BRIT FOODS ORD GBP0.0568</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 12.09</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 12.11</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 12.10</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 12.10</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id68" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:9:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id68') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id69" href="research?isin=GB0006731235" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:9:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id69') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:9:cells:11:cell:selectItemBox" class="selections" id="id6a" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:9:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id6a')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id6a') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="odd">
+		<td class="stockCode">
+			<span>AZN.L</span>
+		</td><td class="description">
+			<span>ASTRAZENECA ORD USD0.25</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 28.40</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 28.41</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 28.40</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 28.40</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id6b" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:10:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id6b') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id6c" href="research?isin=GB0009895292" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:10:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id6c') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:10:cells:11:cell:selectItemBox" class="selections" id="id6d" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:10:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id6d')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id6d') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="even">
+		<td class="stockCode">
+			<span>BARC.L</span>
+		</td><td class="description">
+			<span>BARCLAYS ORD GBP0.25</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 2.44</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 2.45</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 2.45</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 2.45</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id6e" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:11:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id6e') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id6f" href="research?isin=GB0031348658" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:11:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id6f') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:11:cells:11:cell:selectItemBox" class="selections" id="id70" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:11:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id70')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id70') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="odd">
+		<td class="stockCode">
+			<span>BLT.L</span>
+		</td><td class="description">
+			<span>BHP BILLITON PLC USD0.50</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 19.17</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 19.18</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 19.18</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 19.18</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id71" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:12:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id71') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id72" href="research?isin=GB0000566504" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:12:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id72') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:12:cells:11:cell:selectItemBox" class="selections" id="id73" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:12:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id73')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id73') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="even">
+		<td class="stockCode">
+			<span>BATS.L</span>
+		</td><td class="description">
+			<span>BRIT AMER TOBACCO ORD GBP0.25</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 31.90</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 31.91</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 31.91</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 31.91</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id74" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:13:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id74') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id75" href="research?isin=AB0002875800" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:13:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id75') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:13:cells:11:cell:selectItemBox" class="selections" id="id76" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:13:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id76')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id76') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="odd">
+		<td class="stockCode">
+			<span>BLND.L</span>
+		</td><td class="description">
+			<span>BRITISH LAND CO ORD GBP0.25</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 4.98</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 4.98</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 4.98</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 4.98</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id77" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:14:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id77') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id78" href="research?isin=GB0001367019" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:14:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id78') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:14:cells:11:cell:selectItemBox" class="selections" id="id79" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:14:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id79')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id79') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="even">
+		<td class="stockCode">
+			<span>BSY.L</span>
+		</td><td class="description">
+			<span>BRITISH SKY BROADC ORD GBP0.50</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 6.92</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 6.93</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 6.93</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 6.93</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id7a" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:15:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id7a') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id7b" href="research?isin=GB0001411924" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:15:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id7b') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:15:cells:11:cell:selectItemBox" class="selections" id="id7c" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:15:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id7c')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id7c') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="odd">
+		<td class="stockCode">
+			<span>BNZL.L</span>
+		</td><td class="description">
+			<span>BUNZL ORD GBP0.32142857</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 9.96</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 9.97</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 9.97</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 9.97</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id7d" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:16:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id7d') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id7e" href="research?isin=GB00B0744B38" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:16:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id7e') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:16:cells:11:cell:selectItemBox" class="selections" id="id7f" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:16:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id7f')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id7f') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="even">
+		<td class="stockCode">
+			<span>BRBY.L</span>
+		</td><td class="description">
+			<span>BURBERRY GROUP ORD GBP0.0005</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 15.12</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 15.14</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 15.13</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 15.13</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id80" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:17:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id80') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id81" href="research?isin=GB0031743007" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:17:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id81') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:17:cells:11:cell:selectItemBox" class="selections" id="id82" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:17:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id82')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id82') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="odd">
+		<td class="stockCode">
+			<span>CPI.L</span>
+		</td><td class="description">
+			<span>CAPITA GROUP ORD GBP0.02066666</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 7.28</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 7.29</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 7.28</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 7.28</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id83" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:18:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id83') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id84" href="research?isin=GB00B23K0M20" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:18:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id84') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:18:cells:11:cell:selectItemBox" class="selections" id="id85" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:18:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id85')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id85') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="even">
+		<td class="stockCode">
+			<span>CCL.L</span>
+		</td><td class="description">
+			<span>CARNIVAL PLC ORD USD1.66</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 20.12</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 20.14</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 20.13</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 20.13</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id86" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:19:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id86') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id87" href="research?isin=GB0031215220" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:19:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id87') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:19:cells:11:cell:selectItemBox" class="selections" id="id88" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:19:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id88')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id88') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="odd">
+		<td class="stockCode">
+			<span>CNA.L</span>
+		</td><td class="description">
+			<span>CENTRICA ORD GBP0.061728395</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 3.15</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 3.15</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 3.15</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 3.15</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id89" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:20:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id89') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id8a" href="research?isin=GB00B033F229" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:20:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id8a') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:20:cells:11:cell:selectItemBox" class="selections" id="id8b" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:20:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id8b')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id8b') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="even">
+		<td class="stockCode">
+			<span>CPG.L</span>
+		</td><td class="description">
+			<span>COMPASS GROUP ORD GBP0.10</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 6.66</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 6.67</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 6.66</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 6.66</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id8c" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:21:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id8c') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id8d" href="research?isin=GB0005331532" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:21:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id8d') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:21:cells:11:cell:selectItemBox" class="selections" id="id8e" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:21:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id8e')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id8e') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="odd">
+		<td class="stockCode">
+			<span>CRDA.L</span>
+		</td><td class="description">
+			<span>CRODA INTL ORD GBP0.10</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 20.96</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 20.98</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 20.97</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 20.97</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id8f" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:22:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id8f') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id90" href="research?isin=GB0002335270" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:22:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id90') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:22:cells:11:cell:selectItemBox" class="selections" id="id91" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:22:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id91')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id91') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="even">
+		<td class="stockCode">
+			<span>DGE.L</span>
+		</td><td class="description">
+			<span>DIAGEO ORD GBX28.935185</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 15.10</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 15.11</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 15.10</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 15.10</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id92" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:23:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id92') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id93" href="research?isin=GB0002374006" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:23:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id93') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:23:cells:11:cell:selectItemBox" class="selections" id="id94" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:23:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id94')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id94') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="odd">
+		<td class="stockCode">
+			<span>ENRC.L</span>
+		</td><td class="description">
+			<span>EURASIAN NATURAL ORD USD0.20</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 6.32</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 6.33</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 6.32</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 6.32</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id95" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:24:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id95') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id96" href="research?isin=GB00B29BCK10" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:24:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id96') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:24:cells:11:cell:selectItemBox" class="selections" id="id97" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:24:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id97')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id97') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="even">
+		<td class="stockCode">
+			<span>EVR.L</span>
+		</td><td class="description">
+			<span>EVRAZ GROUP SA GDR EACH REPR 1/3 ORD REGS</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 33.39</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 33.41</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 33.40</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 33.40</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id98" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:25:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id98') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id99" href="research?isin=US30050A2024" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:25:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id99') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:25:cells:11:cell:selectItemBox" class="selections" id="id9a" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:25:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id9a')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id9a') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="odd">
+		<td class="stockCode">
+			<span>EXPN.L</span>
+		</td><td class="description">
+			<span>EXPERIAN ORD USD0.10</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 9.90</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 9.91</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 9.90</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 9.90</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id9b" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:26:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id9b') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id9c" href="research?isin=GB00B19NLV48" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:26:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id9c') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:26:cells:11:cell:selectItemBox" class="selections" id="id9d" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:26:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('id9d')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id9d') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="even">
+		<td class="stockCode">
+			<span>FRES.L</span>
+		</td><td class="description">
+			<span>FRESNILLO PLC ORD USD0.50</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 16.59</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 16.61</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 16.60</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 16.60</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="id9e" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:27:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id9e') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="id9f" href="research?isin=GB00B2QPKJ12" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:27:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('id9f') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:27:cells:11:cell:selectItemBox" class="selections" id="ida0" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:27:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('ida0')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('ida0') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="odd">
+		<td class="stockCode">
+			<span>GFS.L</span>
+		</td><td class="description">
+			<span>G4S ORD GBP0.25</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 2.73</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 2.73</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 2.73</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 2.73</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="ida1" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:28:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('ida1') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="ida2" href="research?isin=GB00B01FLG62" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:28:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('ida2') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:28:cells:11:cell:selectItemBox" class="selections" id="ida3" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:28:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('ida3')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('ida3') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="even">
+		<td class="stockCode">
+			<span>GLEN.L</span>
+		</td><td class="description">
+			<span>GLENCORE INTL PLC ORD USD0.01</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 4.05</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 4.05</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 4.05</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 4.05</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="ida4" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:29:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('ida4') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="ida5" href="research?isin=" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:29:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('ida5') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:29:cells:11:cell:selectItemBox" class="selections" id="ida6" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:29:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('ida6')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('ida6') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="odd">
+		<td class="stockCode">
+			<span>HSBA.L</span>
+		</td><td class="description">
+			<span>HSBC HOLDINGS PLC ORD USD0.50(UK REG)</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 5.58</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 5.58</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 5.58</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 5.58</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="ida7" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:30:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('ida7') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="ida8" href="research?isin=GB0005405286" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:30:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('ida8') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:30:cells:11:cell:selectItemBox" class="selections" id="ida9" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:30:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('ida9')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('ida9') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="even">
+		<td class="stockCode">
+			<span>MJW.L</span>
+		</td><td class="description">
+			<span>MAJESTIC WINE ORD GBP0.075</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 4.34</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 4.34</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 4.34</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 4.34</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="idaa" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:31:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('idaa') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="idab" href="research?isin=GB00B021F836" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:31:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('idab') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:31:cells:11:cell:selectItemBox" class="selections" id="idac" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:31:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('idac')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('idac') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="odd">
+		<td class="stockCode">
+			<span>MUL.L</span>
+		</td><td class="description">
+			<span>MULBERRY GROUP ORD GBP0.05</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 18.99</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 19.01</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 19.00</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 19.00</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="idad" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:32:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('idad') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="idae" href="research?isin=GB0006094303" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:32:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('idae') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:32:cells:11:cell:selectItemBox" class="selections" id="idaf" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:32:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('idaf')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('idaf') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="even">
+		<td class="stockCode">
+			<span>REDT.L</span>
+		</td><td class="description">
+			<span>RED24 LTD ORD GBP0.01(POST REORG)</span>
+		</td><td class="livebid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 0.13</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 0.13</span>
+		</td><td class="livemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 0.13</span>
+		</td><td class="closemid rightAlign">
+			<span class="usingClosePrice zeroValuedHolding_false">$ 0.13</span>
+		</td><td class="change rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">$ 0.00</span>
+		</td><td class="percentChange rightAlign">
+			<span class="neutral usingClosePrice zeroValuedHolding_false">0.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="idb0" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:33:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('idb0') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="idb1" href="research?isin=GB00B297TG43" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:33:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('idb1') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:33:cells:11:cell:selectItemBox" class="selections" id="idb2" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:33:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('idb2')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('idb2') != null;}.bind(this));"></span>
+		</td>
+	</tr><tr class="odd">
+		<td class="stockCode">
+			<span>VOD.L</span>
+		</td><td class="description">
+			<span>VODAFONE GROUP ORD USD0.11428571</span>
+		</td><td class="livebid rightAlign">
+			<span class="zeroValuedHolding_false">$ 1.71</span>
+		</td><td class="liveoffer rightAlign">
+			<span class="zeroValuedHolding_false">$ 1.72</span>
+		</td><td class="livemid rightAlign">
+			<span class="zeroValuedHolding_false">$ 1.72</span>
+		</td><td class="closemid rightAlign">
+			<span class="zeroValuedHolding_false">$ 34,500.00</span>
+		</td><td class="change rightAlign">
+			<span class="negative zeroValuedHolding_false">-$ 34,498.285</span>
+		</td><td class="percentChange rightAlign">
+			<span class="negative zeroValuedHolding_false">-100.00 %</span>
+		</td><td class="icon">
+			<span>
+		<a href="#" id="idb3" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:34:cells:9:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('idb3') != null;}.bind(this));return !wcall;" alt="Trade" title="Trade"><img src="../content/images/icon_trade.gif"></a>
+	</span>
+		</td><td class="icon">
+			<span>
+		<a id="idb4" href="research?isin=GB00B16GWD56" class="externalLink" onclick="var wcall=wicketAjaxGet('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:34:cells:10:cell:link:1:IBehaviorListener:0:',function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('idb4') != null;}.bind(this));return !wcall;" alt="Research" title="Research" rel="{handler:'iframe'}"><img src="../content/images/icon_info.gif"></a>
+	</span>
+		</td><td class="selection">
+			<span><input type="checkbox" name="container:components:panels:18:panel:watchListTable:body:rows:34:cells:11:cell:selectItemBox" class="selections" id="idb5" onclick="var wcall=wicketAjaxPost('?wicket:interface=:330:container:components:panels:18:panel:watchListTable:body:rows:34:cells:11:cell:selectItemBox:1:IBehaviorListener:0:', wicketSerialize(Wicket.$('idb5')),function() { }.bind(this),function() { }.bind(this), function() {return Wicket.$('idb5') != null;}.bind(this));"></span>
+		</td>
+	</tr>
+</tbody>
+</table>
+</body>
+</html>

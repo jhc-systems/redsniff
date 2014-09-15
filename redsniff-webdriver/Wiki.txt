@@ -1,0 +1,540 @@
+==Introduction==
+redsniff (aka selenium-extras), a library in Java, (which I created as a side-project, and will soon be on github), is a thin higher-level API on top of [http://code.google.com/p/selenium/wiki/GettingStarted Selenium Webdriver] that integrates [http://code.google.com/p/hamcrest/wiki/Tutorial hamcrest] to enable writing expressive, effective automated tests for interacting with, and making assertions against websites. 
+
+(It is originally based on the experimental [http://code.google.com/p/selenium/wiki/LiftStyleApi Selenium Lift-Style API] but ended up diverging substantially.)
+
+==Style==
+The style used, which can look unusual to begin with, is, (like hamcrest, Mockito and other mock libraries), known as a [http://en.wikipedia.org/wiki/Fluent_interface  Fluent interface], or [http://martinfowler.com/books/dsl.html Internal DSL ].
+
+This means it uses certain tricks to make the API look very readable,  ( albeit.with(aLotOf(brackets())) ) , almost like an English sentence if you took the punctuation out. 
+
+It tends to encourage a ''declarative'' rather than ''procedural'' way of thinking about things - '''What, not How'''.
+
+==Quick example==
+
+we create a RedsniffWebDriverTester as below  
+ RedsniffWebDriverTester browser = new RedsniffWebDriverTester( new ChromeDriver() );
+ browser.goTo("http://my-url.com");
+ ...
+Then you can write assertions like this:
+  '''browser'''.assertPresenceOf( ''dropDown()''.that( ''hasName''("a_drop-down")));
+
+which means, "''browser'', please assert the presence of a drop down item that has ''name'' 'a_drop-down'"
+
+i.e. ''on the browser, check that a dropdown whose 'name' attribute 
+is "a_drop-down" is present somewhere on the page  ''
+
+
+Another example:
+  
+ '''browser'''.assertThatThe( ''third( dropDown()''.that( ''hasName''("a_drop-down"))),   ''isEnabled()'');
+
+which means, "on the browser, find the third dropdown on the page whose 'name' attribute 
+is "a_drop-down"  and check that it is enabled (not greyed-out) "
+
+==More Examples==
+
+Here are some more - the syntax is designed so that what it does is obvious without explanation or comments :
+ '''browser'''.goTo("http://www.wikipedia.org");
+ '''browser'''.type("clowns", ''into''( ''textBox()''.that(''hasName''("search"))));
+ '''browser'''.clickOn(''button''("OK"));
+
+==Feedback - a first class citizen==
+redsniff puts a very high value on feedback - diagnostic messages that appear when assertions and expectations fail.
+Some messages you could get from above examples are:
+ Expected: a(n) 3rd drop-down that has name "a_drop-down" to match is <enabled>
+ but: only found <2> such elements
+
+ Expected: 3rd drop-down that has name "a_drop-down" to match  is <enabled>
+ but:
+ element was <disabled>
+
+ Expected: a unique textbox that has name "search" to type "clowns" into, 
+ but:
+ Did not find any textbox that: {has name "search"}
+ <input> (name:Search)  - not matched because name  was:
+   '[S]earch'
+ instead of:
+   '[s]earch'
+
+By contrast, using WebDriver directly would have resulted in just ElementNotFoundException in most cases, and it may take you some time to realise you had misspelled the element name.
+
+==Why 'redsniff'?==
+Because, when your test fails and goes red, this can help you sniff out the reason.  Also, "hamcrest" is an anagram of "matchers", which is the core concept in that library, and so this is an anagram of "finders", which is the main concept in this library. 
+
+Well, nearly, there's an extra 'f' but nothing is ever perfect - which is why we need flexible test frameworks.
+
+==Aim==
+redsniff aims to make the writing and understanding of the intent of tests easier, whilst diagnosing clearly why they fail, which is often a frustrating and time-consuming process when we first write the test.
+
+It also
+* allows for less brittle tests by allowing you to specify as much or as little as you need
+* is highly composable - expressions can be plugged together like Lego
+* deals with synchronization issues particularly for AJAX-enabled apps, where elements can appear and disappear
+* particular support for testing tables of data, including csv downloads
+* easy support for creating custom abstractions specific to your web app and domain
+
+Whatever you can express should do what you'd expect it to do by examining the expression
+
+==Finders==
+===Core concept===
+The core concept used in redsniff is a ''Finder'', and this represents something similar to a WHERE clause in sql. 
+
+It is an expression of something we want to find on the page.
+They typically have 2 parts - the base part,(usually the tag name), and then further specific restrictions, expressed as a hamcrest Matcher<WebElement> - something that matches a condition against a WebElement, such as having a particular id tag.
+====Simple examples====
+The following method returns a simple finder that will look for div elements:
+ MFinder finder = Finders.''div''();
+
+The ''Finders'' class contains a large list of static methods that return finders - similar to the ''Matchers'' class in hamcrest. Here we've used ''div()'' which returns a finder for <nowiki><div></nowiki> elements.
+
+Calling browser.find with this as an argument will return a collection of all the WebElements whose tag is <nowiki><div></nowiki>
+ Collection<WebElement> divs = '''browser'''.find( Finders.''div()'');
+Since divs are pretty common, this would typically bring back rather a lot so we can limit the results by being more specific and providing further restrictions.  We can do this by appending .that(...) and providing a matcher
+ Collection<WebElement> redDivs = '''browser'''.find( Finders.''div()''.that(SelMatchers.''hasCssClass''("red")));
+
+The ''SelMatchers'' class has a large list of methods that return matchers for ''WebElement'' objects - the type used by WebDriver to refer to any element.  
+ ''hasCssClass''(String className) 
+returns a matcher that will pass if the element it is applied to has the specified class among its class attributes.
+
+We can then tidy up by using [http://docs.oracle.com/javase/1.5.0/docs/guide/language/static-import.html '''import static'''] to remove the class names
+ import static jhc.selenium.webdriver.Finders.*;
+ import static jhc.selenium.webdriver.SelMatchers.*;
+ ...
+ 
+ Collection<WebElement> redDivs = '''browser'''.find( ''div()''.that(''hasCssClass''("red")));
+
+Finders can have as many matchers as you like, appended like this:
+ ''div()''
+    .that( ''hasCssClass''("red") )
+    .that( ''hasText''("Some text") );
+    ...
+We can also wrap such a finder with one that finds just one item, such as ''fourth(...)'' or ''only(..)'' :
+ ''fourth''( ''div()''.that( ''hasName''(...)) )
+ ''only''( ''button()''.that( ''hasId''(...)) )
+
+These carry implicit assertions - here there must be at least 4 divs with that ''name'', and only one button with that ''id''.
+
+====Default attributes====
+Note – some finders have attributes that are so central to them that they are the default attribute, and can be accessed by passing the value to the method itself.
+e.g. 
+ ''button''(“OK”) 
+- this is equivalent to 
+ ''button''().that(''hasValue''(“OK”))
+
+and would match
+ <nowiki> <input type=”button” value=”OK”/> </nowiki>
+
+
+
+and similarly 
+ link(“Click here”) 
+would match
+ <nowiki>  <a href=”....”>Click here</a>  </nowiki> 
+
+These are only used in a few cases though.
+
+===Further examples===
+
+====Certain number expected====
+
+ '''browser'''.assertPresenceOf(''exactly''(3), ''div''() );
+ '''browser'''.assertPresenceOf(''atLeast''(4), ''span''() );
+
+====Finding and then matching====
+
+Sometimes you want to get an element and then make an assertion about some aspect of it, rather than just include that aspect in the list of that(..) restrictions.
+
+ WebElement okButton= '''browser'''.find( ''only''(''button''("OK")) );
+ ''assertThat''(button, ''isEnabled()'');
+
+This can also be written just as:
+
+ '''browser'''.''assertThat'''The'''''( ''only''(''button''("OK")) , ''isEnabled()'');
+
+====Subcategories of Finder====
+There are two broad categories of Finder class –
+ 
+*'''MFinder''' (M for Multiple) , which are those that could theoretically find multiple results. e.g. 
+ ''button''()
+*'''SFinder''' (S for Single) which could only return one.
+So 
+ t.find(''button''()) 
+
+returns a Collection<WebElement> (It may be the case that there is only one button on the page, but the query -button() does not know this). 
+
+and
+ t.find(''only''(''button''()))
+returns just a <WebElement>.
+
+
+=====More complex expressions=====
+
+When locating the element you want to interact with requires looking at the hierarchy it sits within, we can express that using the '''within...''' methods.
+
+====MFinder methods====
+MFinders have the following methods
+
+ '''that'''(..) 
+which takes a Matcher<WebElement> and  restricts the results based on the matcher,
+
+
+
+ '''withinA'''(..) 
+which takes another MFinder expression within which this finder must exist
+
+e.g. 
+ ''button''().withinA(''form''())
+would only find those buttons that are situated within a <nowiki> <form>..</form> </nowiki>
+
+
+
+and 
+ '''withinThe'''(...) 
+which takes an SFinder, again within which this finder must exist
+
+e.g. 
+ ''button''().withinThe(
+    ''only''(''form''().that(''hasName''(“orderForm”))) 
+would only find those buttons situated within the unique “orderForm” form.
+
+====SFinder methods====
+SFinders have the following methods
+
+(no '''that''' method – restrictions would not be done on an Sfinder.)
+
+'''withinThe'''(...) same as above, but will only return one, or no results
+ ''only''(''button''()).withinThe(''only''(''form''())
+there's only one form, and that form has only one button.
+
+
+
+'''withinEach'''(...) takes an MFinder, and in each result of the MFinder, finds the single result there
+
+so
+whilst
+ t.find ( ''first''(''button''() ) ) ;
+would return the one button on the page,
+ t.find( ''first''(''button''())
+   .withinEach(''form''()))
+
+would return a collection, consisting of the first button in each form. 
+I.e it will go through each form on the page and include the first button in each one.
+
+
+This can be useful for, say, a table such as an email inbox, where each row has a checkbox you want to tick.
+
+ t.tick( ''first''(''checkbox''()).withinEach(''row''());
+
+====Element within another====
+For example, there might be several "OK" buttons on the page, with similar name etc, but we want the one within the order form:
+
+ '''browser'''.clickOn(''button''("OK").withinA(''form''().that(''hasName''("orderForm")));
+
+If anything in the hierarchy isn't found, the error message will reflect that, and try to tell you why:
+
+ Could not find form that has name "orderForm"
+ within which to search for {button that: {has value "OK"}}
+ because
+ No element with name "orderForm" found at all
+
+====Element based on its subelements====
+If rather than identify an element based on what outer elements it is in, we may also want to do it by identifying what child elements it has within it. For example, you want the div that surrounds the order form:
+
+ '''browser'''.find(div().that(
+     hasSubElement( ''form()''.that(''hasName''("orderForm")));
+
+We may also want to do the same action in several related places.
+
+The following will try to tick the second box found in each form - (if any forms it finds don't have that many checkboxes within them it will fail..)
+ '''browser'''.inEach(''form()'').tick( ''second''( ''checkbox''() ));
+
+===Higher-level abstraction===
+====Extracted Method====
+Often in webapps there are particular concepts that are specific to the app or domain, which we refer to frequently.
+For example we may have an introduction section on a page, that is represented in html like:
+ <nowiki>
+ <div class="section-introduction">...</div>
+ </nowiki>
+To locate this, we can of course use 
+ div().that( hasCssClass("section-introduction"))
+
+but if it's needed frequently this can get repetitive and error-prone.
+
+We can easily abstract this by creating a method :
+ private static MFinder<...> introductionSection() {
+   return div().that( ''hasCssClass''("section-introduction"));
+ }
+
+and the assertion becomes:
+ '''browser'''.assertPresenceOf( ''introductionSection()'' );
+
+
+This also means if we change what an introduction section looks like in html we just have to change it in one place.
+
+====..with parameters====
+
+If we have lots of types of sections:
+ <nowiki>
+ <div class="section-introduction">...</div>
+ <div class="section-conclusion">...</div>
+ </nowiki>
+we can just parameterise the method :
+
+
+ private static MFinder<...> section('''String sectionType''') {
+   return div().that( ''hasCssClass''("section-"+'''sectionType'''));
+ }
+and assertions become
+ '''browser'''.assertPresenceOf( ''section''("introduction") );
+ '''browser'''.assertPresenceOf( ''section''("conclusion") );
+ ...
+
+====..and a nice description====
+
+For above examples, if something wasn't found, you'd still get the message in terms of div's and css class.
+ Expected: a(n) div that has css class "section-introduction"
+ but:
+ No element with cssClass "section-introduction" found at all
+
+
+If instead, you think it makes more sense to use your domain/abstraction's terminology then it's easy to make that happen: 
+
+ private static MFinder<...> section(String sectionType) {
+   return '''Describer.describedAs(sectionType +" section", '''div().that( ...)''')''';
+ }
+
+Now if your assertion fails you would get:
+
+ Expected: a(n) '''introduction section'''
+ but:
+ No element with cssClass "section-introduction" found at all
+
+The expectation part is now in your domain's terms, although the explanation is always in low-level terms.
+
+====Further examples====
+
+ public MFinder<...> menuItem(String '''optionText''') {
+    return  ''describedAs''("Menu item " +optionText, 
+                         ''div()''.that(''hasCssClass''("menu-option"))
+                              .that(''hasSubElement''(''link''('''optionText'''))));
+ }
+                                 
+
+above defines a "menu item" by looking for a div with css class "menu-option" which surrounds a link (<nowiki><a></nowiki> tag) with the text shown. 
+So:
+ menuItem("Home")
+would be a finder for the div element below:
+
+ <nowiki>
+  <div class="menu-option">
+      <a href="...">Home</a>
+   ...
+  </div>
+ </nowiki>
+
+==The 'browser' object - RedsniffWebDriverTester==
+===Entry point for commands===
+In above examples have all used an object called '''browser''' - this is an instance of a RedsniffWebDriverTester, (or a sub-class of it).
+
+Just like the ''WebDriver'' type in Selenium/Webdriver, it embodies the browser, and simulates a user interacting with it, and is the main point of entry for running commands.
+
+We create one just by wrapping a WebDriver instance, such as a [http://code.google.com/p/selenium/wiki/ChromeDriver ChromeDriver], if we're testing using Google Chrome.  
+
+Above, for clarity, we called the variable 'browser' but it gets used so often in tests that I would suggest using a single letter - I use 't' for tester.
+
+ RedsniffWebDriverTester t = new RedsniffWebDriverTester(new ChromeDriver());
+
+It provides the following instance methods:
+
+ 
+{| class="wikitable"
+|-
+!Method
+!Returns
+!Example
+!Behaviour
+
+|-
+|'''find'''(finder)
+|Collection<'''WebElement'''> 
+or single
+
+'''WebElement''' 
+|
+ Collection<WebElement> buttons = 
+ t.find( ''button''() )
+
+ WebElement okButton = 
+ t.find( ''only''( ''button''("OK")))
+|If passed an '''MFinder''', such as '''div()''' it returns a collection of all such elements on the page. 
+
+If passed an '''SFinder''' such as ''only''(''div''()) then it returns that one element.
+
+In either case, it will throw an AssertionError (with explanation) if the expected item(s) are not found.
+|-
+|'''assertPresenceOf'''(finder)
+|'''void''' 
+|
+ t.assertPresenceOf( ''div''().that( ''hasName''("search") )) 
+|Throws an exception if the expression does not find anything on the page
+|-
+|'''assertAbsenceOf'''(finder)
+|'''void''' 
+|
+ t.assertAbsenceOf( ''div''().that( ''hasName''("errorBlock") )) 
+|Throws an exception if the expression ''does'' find anything on the page
+|-
+|'''assertThatThe'''(finder, matcher)
+|'''void''' 
+|
+ t.assertThatThe( ''textbox''().that( ''hasName''("search") ),  ''hasText''("Some text")) 
+|Uses the finder to find a unique element and then checks the given matcher matches
+|-
+|'''the'''(finder)
+|'''WebElement''' 
+|
+ WebElement aDiv = t.the( ''div''() ) 
+|synonym for find(''only''(finder))
+|-
+|'''newTesterFrom'''(webelement)
+|'''RedsniffWebDriverTester''' 
+|
+ WebElement mainSection = t.find(...);
+ RedsniffWebDriverTester reducedScopeTester = t.newTester(mainSection);
+ 
+ reducedScopeTester.find(.....);
+ reducedScopeTester.assertPresenceOf(...)
+
+|If your testing was limited to a particular area of a page, (and which was guaranteed not to be replaced by an ajax operation), - e.g. a “main section” then you can limit yourself to this area by creating a tester rooted in this area, rather than the whole page.
+
+That tester will then behave as usual but just find elements inside the section – ie under the root element.
+|-
+|'''assertTextPresent'''(string)
+|'''--''' 
+|
+ t.assertTextPresent(“Successful”)
+|checks that the text appears somewhere on the page (not recommended unless a small page).
+This is effectively reading the whole page as pure text then looking for your string inside that
+|-
+|'''assertTextAbsent'''(string)
+|'''--''' 
+|
+ t.assertTextAbsent(“Something wrong”)
+|checks the text does ''not'' appear anywhere on the page. Again, not recommended – see above.
+|-
+|'''getPageSource'''()
+|'''String''' 
+|
+ String renderedHtml = t.getPageSource()
+|returns the current page as html.
+Note that when debugging, rather than print this out, it may be easier to run in Chrome mode and then use F12 to inspect the page. 
+Still useful if running in HtmlUnit (headless) mode.
+|-
+|'''getDriver'''()
+|'''WebDriver''' 
+|
+ WebDriver driver = t.getDriver()
+|returns the underlying WebDriver wrapped by this RedsniffWebDriverTester
+|-
+|'''quit'''()
+|'''--''' 
+|
+ t.quit()
+|Closes the browser, by calling driver.quit() on the wrapped driver
+|-
+|'''goTo'''(String url)
+|'''--''' 
+|
+ t.goTo(“'''http://www.redsniff.org'''”)
+|Redirects the browser to the supplied url
+|-
+|'''clickOn'''(finder)
+|'''--''' 
+|
+ t.clickOn(button(“OK”))
+ //same as:
+ t.clickOn(only(button(“OK”))
+ 
+
+ t.clickOn( each(button(“Delete”)))
+|Finds the element described and performs a click on it. (ends up calling element.click() )
+
+if given an Mfinder like ''button''(), it will assume uniqueness and insert ''only''(..)
+If you actually mean to click on every button found, then you can type
+
+t.clickOn( '''''each'''''(button() )
+
+|-
+|'''type'''(string, finder)
+|'''--''' 
+|
+ t.type(“clowns”, textbox() )
+ 
+ //same as
+ t.type(“clowns”, ''into''( ''textbox''() )
+|types the supplied text into the item found by finder.  (ends up calling element.sendKeys(text)
+)
+
+Same rules on uniqueness and each apply
+
+Can use syntactic sugar method ''into(...)'' – which just takes and returns a finder – to make it read better
+|-
+|'''clear'''(string, finder)
+|'''--''' 
+|
+ t.clear('''textbox()''')
+|clears a textbox
+|-
+|'''tab'''(finder)
+|'''--''' 
+|
+ t.type(“clowns”, ''into''( ''textbox''() )
+ t.tab(''textbox''() )
+|tabs out of a textbox (depending on driver used, either by sending the tab key, or by firing an onBlur event
+|-
+|'''submit'''(finder)
+|'''--''' 
+|
+ t.submit( ''form''())
+|submits a form (use when you can't just click a button to submit for some reason – mainly there for legacy reasons)
+|-
+|'''tick'''(finder)
+|'''--''' 
+|
+ t.tick( ''checkbox''() )
+|same as clickOn but makes more sense for a checkbox – (might rename this to toggle or something)
+|-
+|'''choose'''(finder)
+|'''--''' 
+|
+ t.choose( ''dropDownOption''("Option 1")   
+     .withinA( ''wicketItemByPath''(dropDownPath))
+       .withinA(''wicketItemByPath''(formPath)));
+|same as clickOn, but makes more sense for a drop-down (select) item.
+|-
+|'''clearSession'''()
+|'''--''' 
+|
+ t.clearSession()
+|clears the cookies on the browser
+|-
+|'''assertDownload'''()
+|'''--''' 
+|
+ TBA
+|TBA
+|-
+|MORE TBA
+|MORE TBA 
+| MORE TBA
+|MORE TBA
+|-
+
+|}
+
+=Table test support=
+TBA
+
+=Synchronisation/waiting support=
+TBA
