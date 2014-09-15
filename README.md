@@ -30,3 +30,35 @@ Then you can write assertions like this:
 which means, "**browser**, please confirm the presence of a drop down item that has `name` `'a_drop-down'`"
 
 i.e. *on the browser, check that a dropdown whose 'name' attribute is "a_drop-down" is present somewhere on the page*
+
+
+###More Examples
+
+Here are some more - the syntax is designed so that what it does is obvious without explanation or comments :
+
+    browser.goTo("http://www.wikipedia.org");
+    browser.type("clowns", ''into''( ''textBox()''.that(''hasName''("search"))));
+    browser.clickOn(''button''("OK"));
+
+###Feedback - a first class citizen
+redsniff puts a very high value on feedback - diagnostic messages that appear when assertions and expectations fail.
+Some messages you could get from above examples are:
+
+    Expected: a(n) 3rd drop-down that has name "a_drop-down" to match is <enabled>
+    but: only found <2> such elements
+
+
+    Expected: 3rd drop-down that has name "a_drop-down" to match  is <enabled>
+    but:
+    element was <disabled>
+
+
+    Expected: a unique textbox that has name "search" to type "clowns" into, 
+    but:
+    Did not find any textbox that: {has name "search"}
+    <input> (name:Search)  - not matched because name  was:
+      '[S]earch'
+    instead of:
+      '[s]earch'
+
+By contrast, using WebDriver directly would have resulted in just `ElementNotFoundException` in most cases, and it may take you some time to realise you had misspelled the element name.
