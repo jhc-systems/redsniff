@@ -1,5 +1,6 @@
 redsniff
 ========
+[![Build Status](https://travis-ci.org/jhc-systems/redsniff.svg?branch=master)](https://travis-ci.org/jhc-systems/redsniff)
 
 A fluent, feedback-rich API for WebDriver or other similar libraries
 
