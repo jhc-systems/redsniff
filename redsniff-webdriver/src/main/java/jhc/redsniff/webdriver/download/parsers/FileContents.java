@@ -23,14 +23,14 @@ import jhc.redsniff.webdriver.Download;
 import jhc.redsniff.webdriver.download.DownloadFactory;
 
 import org.hamcrest.Description;
-import org.junit.Assert;
 
 public class FileContents extends Download<String>{
     private File file;
 
     public FileContents(File file) {
         this.file = file;
-        Assert.assertTrue("file exists", file.exists());
+        if(!file.exists())
+            throw new AssertionError(file.getAbsolutePath() + " does not exist");
     }
 
     @Override

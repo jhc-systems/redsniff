@@ -21,7 +21,6 @@ import static org.hamcrest.core.DescribedAs.describedAs;
 import jhc.redsniff.internal.locators.MatcherLocator;
 import jhc.redsniff.internal.matchers.CheckAndDiagnoseTogetherMatcher;
 import jhc.redsniff.internal.util.StringDiffFormatter;
-import junit.framework.ComparisonCompactor;
 
 import org.hamcrest.Description;
 import org.hamcrest.Factory;

@@ -17,7 +17,6 @@ package jhc.redsniff.webdriver.factory;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.hamcrest.Matchers.instanceOf;
-import static org.junit.Assume.assumeThat;
 
 import java.net.URL;
 import java.util.HashMap;
@@ -285,21 +284,7 @@ public final class WebDriverFactory {
         return driver == null ? null : driver.getClass();
     }
 
-    // TODO use non-static method
-    @Deprecated
-    public static void assumeRunningInRealBrowser(String reason) {
-        assumeThat("Not running in real browser:" + reason,
-                getInstance().activeDriver(),
-                instanceOf(RemoteWebDriver.class));
-    }
-
-    // TODO use non-static method
-    @Deprecated
-    public static void assumeRunningInHtmlUnit(String reason) {
-        assumeThat("Not running in html unit:" + reason,
-                getInstance().activeDriver(),
-                instanceOf(HtmlUnitDriver.class));
-    }
+  
 
     protected WebDriverFactoryConfiguration getConfiguration() {
         return configuration;

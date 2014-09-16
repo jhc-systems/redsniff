@@ -100,7 +100,7 @@ public abstract class RedsniffTester<E, C> {
 	 * <p/>
 	 * Usual rules on uniqueness and each apply.
 	 * <p/>
-	 * Can use syntactic sugar method into(...) – which just takes and returns a finder – to make it read better
+	 * Can use syntactic sugar method into(...) which just takes and returns a finder, simply to read better
 	 * @param finder finder to find the element to interact with
 	 * @param append true to append to any existing text in the box, false to overwrite it
 	 */
@@ -114,7 +114,7 @@ public abstract class RedsniffTester<E, C> {
 	 * <p/>
 	 * Usual rules on uniqueness and each apply.
 	 * <p/>
-	 * Can use syntactic sugar method into(...) – which just takes and returns a finder – to make it read better
+	 * Can use syntactic sugar method into(...) which just takes and returns a finder, simply to read better
 	 * @param finder finder to find the element to interact with
 	 */
     public <Q extends Quantity<E>> void type(String input,

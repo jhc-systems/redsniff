@@ -29,7 +29,6 @@ import jhc.redsniff.webdriver.RedsniffWebDriverTester;
 import jhc.redsniff.webdriver.download.DownloadFactory;
 
 import org.hamcrest.Description;
-import org.junit.Assert;
 
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 
@@ -47,7 +46,8 @@ public class CSVTable extends Download<Table>{
     
     public CSVTable(File csvFile) {
         this.csvFile = csvFile;
-        Assert.assertTrue("file exists",csvFile.exists());
+        if(!csvFile.exists())
+            throw new AssertionError(csvFile.getAbsolutePath() + " does not exist");
         csvTester = new RedsniffWebDriverTester(new NonLoggingHtmlUnitDriver(BrowserVersion.FIREFOX_17));
     }
 
@@ -83,7 +83,8 @@ public class CSVTable extends Download<Table>{
         String convertedHtmlPath = csvFile.getAbsolutePath().replaceAll("\\.csv$", "\\.html");
         convertedHtmlFile = new File(convertedHtmlPath);
         new CsvToHtmlFileConverter().convertToHtml(csvFile, convertedHtmlFile, true);
-        Assert.assertTrue("converted to html file exists",convertedHtmlFile.exists());
+        if(!convertedHtmlFile.exists())
+            throw new AssertionError("expected converted to html file but " + convertedHtmlFile.getAbsolutePath() + "  does not exist");
         return convertedHtmlPath;
     }
     
