@@ -81,3 +81,26 @@ It also
 * easy support for creating custom abstractions specific to your web app and domain
 
 Whatever you can express should do what you'd expect it to do by examining the expression.
+
+## Similar projects
+- [Selenide](http://selenide.org/)
+- [FluentLenium](https://github.com/FluentLenium/FluentLenium)
+
+## Author
+- [Nic Infante](https://github.com/nico78)
+
+
+## Contributors
+- Daniel Ecer
+- [Graeme Oswald](https://github.com/GraemeOswald)
+
+
+## Acknowledgments
+- [Selenium Lift-Style API](http://code.google.com/p/selenium/wiki/LiftStyleApi) a similar project  by [Robert Chatley](https://github.com/rchatley) which inspired this one
+- [Steve Freeman](https://github.com/sf105) ideas about table matching from workshop sessions as well as being one of the authors of [Hamcrest](https://github.com/hamcrest/JavaHamcrest)
+
+- [Ebselen](https://github.com/Ardesco/Ebselen)  - File download code modified from code in this project
+- [Dean Chapman](https://github.com/p14n) Ideas, feedback, encouragement
+
+
+
