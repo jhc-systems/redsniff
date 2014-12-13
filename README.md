@@ -90,10 +90,17 @@ Whatever you can express should do what you'd expect it to do by examining the e
 
 ###Further Examples
 
+
+
+
+
 ####Support for tables
 
 You can [make assertions about data in an html table] (https://github.com/jhc-systems/redsniff/wiki/Support-for-tables), being as specific as you would like to be
 
+####Assertions about Downloads
+
+You can [make assertions about downloadable files](https://github.com/jhc-systems/redsniff/wiki/Support-for-downloads), such as a CSV download, using the table assertions
 
 
 ## Similar projects
