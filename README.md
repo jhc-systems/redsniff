@@ -34,7 +34,6 @@ i.e. *on the browser, check that a dropdown whose 'name' attribute is "a_drop-do
 
 
 ###More Examples
-
 Here are some more - the syntax is designed so that what it does is obvious without explanation or comments :
 
     browser.goTo("http://www.wikipedia.org");
@@ -79,28 +78,49 @@ Well, nearly, there's an extra 'f' but nothing is ever perfect - which is why we
 ##Goal
 redsniff aims to make the writing and understanding of the intent of tests easier, whilst diagnosing clearly why they fail, which is often a frustrating and time-consuming process when we first write the test.
 
+Ideally you should be able to express what you need without for-loops, anonymous sub-classes, etc.
+
+Whatever you can express should do what you'd expect it to do by examining the expression.
+
 It also
 * allows for less brittle tests by allowing you to specify as much or as little as you need
 * has high [compositionality](http://vimeo.com/user22258446/review/79095045/9590c62ac2) - expressions can be plugged together in different ways, like Lego 
 * deals with synchronization issues particularly for AJAX-enabled apps, where elements can appear and disappear
 * particular support for testing tables of data, including csv downloads
-* easy support for creating custom abstractions specific to your web app and domain
+* has easy support for creating custom abstractions specific to your web app and domain
 
-Whatever you can express should do what you'd expect it to do by examining the expression.
 
 ###Further Examples
+Things within other things:
 
+    browser.clickOn(button("OK").withinA(form().that(hasName("orderForm")));
+    
+potential error feedback:
 
+    Could not find form that has name "orderForm"
+    within which to search for {button that: {has value "OK"}}
+    because
+    No element with name "orderForm" found at all
 
+Element based on sub-elements
+    
+    browser.find(div().that(
+        hasSubElement( form().that(hasName("orderForm")));
 
+We may also want to do the same action in several related places.
+The following will try to tick the second box found in each form - (if any forms it finds don't have that many checkboxes within them it will fail..)
+    
+    browser.inEach(form())
+                    .tick( second( checkbox() ));
+    
 
 ####Support for tables
 
-You can [make assertions about data in an html table] (https://github.com/jhc-systems/redsniff/wiki/Support-for-tables), being as specific as you would like to be
+You can [make assertions about data in an html table] (https://github.com/jhc-systems/redsniff/wiki/Support-for-tables), being as specific as you would like to be.
 
 ####Assertions about Downloads
 
-You can [make assertions about downloadable files](https://github.com/jhc-systems/redsniff/wiki/Support-for-downloads), such as a CSV download, using the table assertions
+You can [make assertions about downloadable files](https://github.com/jhc-systems/redsniff/wiki/Support-for-downloads), such as a CSV download, using the table assertions.
 
 
 ## Similar projects
