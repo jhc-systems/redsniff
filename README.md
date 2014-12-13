@@ -89,56 +89,10 @@ It also
 Whatever you can express should do what you'd expect it to do by examining the expression.
 
 ###Further Examples
-Assertions and associated potential failure messages:
+
 ####Support for tables
-    
-You can make assertions about data in an html table (provided it's structured typically - with field headings going across the top and a record on each row, with no multiple colspans):
 
-    WebElement table = t.find(only(tableElement().that(hasName("a_table"))));
-
-Assertion about the headers
-
-	assertThat(table, isTableElementThat(hasHeaders("Stock Code","Stock Description","Price","Country", "Action")));
-
-
-Explicitly specifying everything on each row:
-
-	assertThat(table, isTableElementThat(
-	    hasDataRows(
-			rowConsistingOf( "MKS.L", 
-			                "Marks and Spencer",
-			                "1.23",
-			                "GB",
-			                cellContaining(link().that(hasAttribute("title",equalTo("Trade"))))
-			)
-			//other rows...			
-	)));
-						
-Specifying only some fields on each row:
-
-	assertThat(table, isTableElementThat(
-	    hasDataRows(
-			rowIncluding(
-			    valueInColumn("Stock Code","VOD.L"),
-			    valueInColumn("Price","1.23")
-			 )
-			//other rows...			
-						)));
-						
-These could produce an error like:
-
-    Expected:  a table with data rows:
-				"MKS.L", "Marks and Spencer", "1.23", contains : {a link that: {has title "Trade"}}
-	            ...
-	but: table had:
-	 in row 2:
-	 cell in column: [2] , headed <Stock Description>, expected to be "Mark And Spencer"
-			was: 
-			    'Mark[s] And Spencer'
-			instead of:
-			    'Mark[] And Spencer'
-    Actual row:
-    MKS.L| <!***Marks And Spencer***!>| 1.23|GB
+You can [make assertions about data in an html table] (https://github.com/jhc-systems/redsniff/wiki/Support-for-tables), being as specific as you would like to be
 
 
 
