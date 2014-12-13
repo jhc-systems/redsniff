@@ -25,10 +25,10 @@ we create a RedsniffWebDriverTester as below
 
 Then you can write assertions like this:
 
-    browser.assertPresenceOf( dropDown().that( hasName(a_drop-down) ) );
+    browser.assertPresenceOf( dropDown().that( hasName("a_drop-down") ) );
 
 
-which means, "**browser**, please confirm the presence of a drop down item that has `name` `'a_drop-down'`"
+which means, **browser**, *please confirm the presence of a drop down item that has `name` `"a_drop-down"`*
 
 i.e. *on the browser, check that a dropdown whose 'name' attribute is "a_drop-down" is present somewhere on the page*
 
@@ -40,6 +40,12 @@ Here are some more - the syntax is designed so that what it does is obvious with
     browser.goTo("http://www.wikipedia.org");
     browser.type("clowns", into( textBox().that( hasName("search") ) ));
     browser.clickOn( button("OK") );
+    browser.assertThatThe( third(dropDown().that( hasName("a_drop-down") ), isEnabled() );
+    
+You can also just use css selectors:
+
+    browser.assertThatThe( first( $(".itemselector") ) , isEnabled() );
+    broswer.clickOn( $("#orderSubmit") );
 
 ###Feedback - a first class citizen
 redsniff puts a very high value on feedback - diagnostic messages that appear when assertions and expectations fail.
@@ -62,7 +68,7 @@ Some messages you could get from above examples are:
     instead of:
       '[s]earch'
 
-By contrast, using WebDriver directly would have resulted in just `ElementNotFoundException` in most cases, and it may take you some time to realise you had misspelled the element name.
+By contrast, using WebDriver directly would have resulted in just `ElementNotFoundException` in many cases, and it may take you some time to realise you had, for instance, misspelled an element name.
 
 
 ###Why 'redsniff'?
@@ -75,12 +81,66 @@ redsniff aims to make the writing and understanding of the intent of tests easie
 
 It also
 * allows for less brittle tests by allowing you to specify as much or as little as you need
-* is highly composable - expressions can be plugged together like Lego
+* has high [compositionality](http://vimeo.com/user22258446/review/79095045/9590c62ac2) - expressions can be plugged together in different ways, like Lego 
 * deals with synchronization issues particularly for AJAX-enabled apps, where elements can appear and disappear
 * particular support for testing tables of data, including csv downloads
 * easy support for creating custom abstractions specific to your web app and domain
 
 Whatever you can express should do what you'd expect it to do by examining the expression.
+
+###Further Examples
+Assertions and associated potential failure messages:
+####Support for tables
+    
+You can make assertions about data in an html table (provided it's structured typically - with field headings going across the top and a record on each row, with no multiple colspans):
+
+    WebElement table = t.find(only(tableElement().that(hasName("a_table"))));
+
+Assertion about the headers
+
+	assertThat(table, isTableElementThat(hasHeaders("Stock Code","Stock Description","Price","Country", "Action")));
+
+
+Explicitly specifying everything on each row:
+
+	assertThat(table, isTableElementThat(
+	    hasDataRows(
+			rowConsistingOf( "MKS.L", 
+			                "Marks and Spencer",
+			                "1.23",
+			                "GB",
+			                cellContaining(link().that(hasAttribute("title",equalTo("Trade"))))
+			)
+			//other rows...			
+	)));
+						
+Specifying only some fields on each row:
+
+	assertThat(table, isTableElementThat(
+	    hasDataRows(
+			rowIncluding(
+			    valueInColumn("Stock Code","VOD.L"),
+			    valueInColumn("Price","1.23")
+			 )
+			//other rows...			
+						)));
+						
+These could produce an error like:
+
+    Expected:  a table with data rows:
+				"MKS.L", "Marks and Spencer", "1.23", contains : {a link that: {has title "Trade"}}
+	            ...
+	but: table had:
+	 in row 2:
+	 cell in column: [2] , headed <Stock Description>, expected to be "Mark And Spencer"
+			was: 
+			    'Mark[s] And Spencer'
+			instead of:
+			    'Mark[] And Spencer'
+    Actual row:
+    MKS.L| <!***Marks And Spencer***!>| 1.23|GB
+
+
 
 ## Similar projects
 - [Selenide](http://selenide.org/)
