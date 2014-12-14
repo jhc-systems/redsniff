@@ -71,7 +71,7 @@ By contrast, using WebDriver directly would have resulted in just `ElementNotFou
 
 
 ###Why 'redsniff'?
-Because, when your test fails and goes red, this can help you sniff out the reason.  Also, "_hamcrest_" is an anagram of "_matchers_", which is the core concept in that library, and so this is an anagram of "finders", which is the main concept in this library. 
+Because, when your test fails and goes red, this can help you sniff out the reason.  Also, "_hamcrest_" is an anagram of "_matchers_", which is the core concept in that library, and so this is an anagram of "finders", which is the [main concept](https://github.com/jhc-systems/redsniff/wiki/Finders) in this library. 
 
 Well, nearly, there's an extra 'f' but nothing is ever perfect - which is why we need flexible test frameworks.
 
@@ -112,7 +112,18 @@ The following will try to tick the second box found in each form - (if any forms
     
     browser.inEach(form())
                     .tick( second( checkbox() ));
-    
+
+[More about Finders](https://github.com/jhc-systems/redsniff/wiki/Finders)
+
+####Creating Higher level abstractions
+
+You can easily [create higher-level finders](https://github.com/jhc-systems/redsniff/wiki/Higher-level-abstractions) for the items most relevant to your application and give them nice descriptions.
+
+     browser.clickOn(menuItem("Home"));
+     
+     Expected: a(n) "Home" menu item
+     but:
+     ....
 
 ####Support for tables
 
