@@ -17,7 +17,7 @@ It tends to encourage a *declarative* rather than *procedural* way of thinking a
 
 ###Quick example
 
-we create a RedsniffWebDriverTester as below  
+we create a [RedsniffWebDriverTester](https://github.com/jhc-systems/redsniff/wiki/RedsniffWebDriverTester) as below  
 
     RedsniffWebDriverTester browser = new RedsniffWebDriverTester( new ChromeDriver() );
     browser.goTo("http://my-url.com");
@@ -132,6 +132,32 @@ You can [make assertions about data in an html table] (https://github.com/jhc-sy
 ####Assertions about Downloads
 
 You can [make assertions about downloadable files](https://github.com/jhc-systems/redsniff/wiki/Support-for-downloads), such as a CSV download, using the table assertions.
+
+####Waiting
+You can wait for an event, such as the presence or absence of a finder, or for it to match some condition:
+
+    broswer.waitFor( div().that( hasId("XXX") ));
+    browser.waitFor( absenceOf( button("OK") ) )
+    browser.waitFor( expectationOfMatching( button("OK"), isDisabled() ) )
+
+####Hooks for error pages
+Sometimes your test is looking for a button to click on, say, and it's not there because actually something serious has gone wrong and there's a giant stack trace on the screen.  
+
+It would be nice if the test told you this rather than just saying "no button found".
+
+Redsniff helps by allowing you to register Checkers, which you can set to run either before every assertion you make, or only after a failed assertion.
+
+When using these, if a stack trace was being shown in the browser then the test would include it in the test failure message (which, if you're running in an IDE like eclipse and have the project loaded, you can click to take you to the failed line)
+
+     browser.clickOn( button("OK") );
+     
+     While expecting: a button that has value "OK" to click on
+	 Got error page:
+	 WicketMessage: Can't instantiate page using constructor public webapps.test.utils.TestPage()
+	 Root cause:
+				java.lang.IllegalStateException: Failed to load ApplicationContext
+  			    at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:157)
+                            ...
 
 
 ## Similar projects
