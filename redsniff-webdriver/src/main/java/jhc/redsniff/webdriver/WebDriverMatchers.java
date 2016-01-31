@@ -17,8 +17,9 @@ package jhc.redsniff.webdriver;
 
 import jhc.redsniff.webdriver.matchers.ElementDisplayedMatcher;
 
+import jhc.redsniff.webdriver.matchers.AttributeMatcher;
+import jhc.redsniff.webdriver.matchers.SimpleAttributeMatcher;
 import org.hamcrest.Matcher;
-import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebElement;
 
 public final class WebDriverMatchers {
@@ -283,11 +284,11 @@ public final class WebDriverMatchers {
 
     public static org.hamcrest.Matcher<org.openqa.selenium.WebElement> hasValue(
             org.hamcrest.Matcher<java.lang.String> valueMatcher) {
-        return jhc.redsniff.webdriver.matchers.AttributeMatcher.hasValue(valueMatcher);
+        return SimpleAttributeMatcher.hasValue(valueMatcher);
     }
 
     public static org.hamcrest.Matcher<org.openqa.selenium.WebElement> hasValue(java.lang.String value) {
-        return jhc.redsniff.webdriver.matchers.AttributeMatcher.hasValue(value);
+        return SimpleAttributeMatcher.hasValue(value);
     }
 
     public static org.hamcrest.Matcher<org.openqa.selenium.WebElement> hasId(
@@ -301,18 +302,24 @@ public final class WebDriverMatchers {
 
     public static org.hamcrest.Matcher<org.openqa.selenium.WebElement> hasAttribute(java.lang.String attribute,
             org.hamcrest.Matcher<java.lang.String> stringMatcher) {
-        return jhc.redsniff.webdriver.matchers.AttributeMatcher.hasAttribute(attribute, stringMatcher);
+        return AttributeMatcher.hasAttribute(attribute, stringMatcher);
     }
 
     public static org.hamcrest.Matcher<org.openqa.selenium.WebElement> hasAttribute(java.lang.String attribute,
             java.lang.String attributeDescription, org.hamcrest.Matcher<java.lang.String> stringMatcher) {
-        return jhc.redsniff.webdriver.matchers.AttributeMatcher.hasAttribute(attribute, attributeDescription,
+        return AttributeMatcher.hasAttribute(attribute, attributeDescription,
                 stringMatcher);
     }
 
     public static org.hamcrest.Matcher<org.openqa.selenium.WebElement> hasAttribute(java.lang.String attribute,
+                                                                                    java.lang.String attributeDescription, String text) {
+        return AttributeMatcher.hasAttribute(attribute, attributeDescription,
+                text);
+    }
+
+    public static org.hamcrest.Matcher<org.openqa.selenium.WebElement> hasAttribute(java.lang.String attribute,
             java.lang.String text) {
-        return jhc.redsniff.webdriver.matchers.AttributeMatcher.hasAttribute(attribute, text);
+        return AttributeMatcher.hasAttribute(attribute, text);
     }
 
     public static org.hamcrest.Matcher<jhc.redsniff.html.tables.TableColumn> isColumnIdentifiedBy(

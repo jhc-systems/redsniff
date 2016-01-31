@@ -222,21 +222,36 @@ public class WebTesterTableTest extends RedsniffTestBase {
 
 	private Matcher<TableCell> researchIconCellForIsin(String isin) {
 		return cellContaining(link()
-								.that(hasAttribute("title", equalTo("Research")))
-								.that(hasAttribute("href", endsWith("research?isin=" + isin)))
+								.that(hasTitle(equalTo("Research")))
+								.that(hasHref(endsWith("research?isin=" + isin)))
 								.that(hasSubElement(
-										image().that(hasAttribute("src",endsWith("icon_research.gif"))))));
+										image().that(hasSrc(endsWith("icon_research.gif"))))));
 	}
+
 
 
 	private static Matcher<TableCell> tradeIconCell() {
 		return cellContaining(link()
-								.that(hasAttribute("title",equalTo("Trade")))
-								.that(hasAttribute("href",endsWith("#")))
+								.that(hasTitle(equalTo("Trade")))
+								.that(hasHref(endsWith("#")))
 								.that(hasSubElement(
-										image().that(hasAttribute("src",endsWith("icon_trade.gif"))))));
-	}			
-	
+										image().that(hasSrc(endsWith("icon_trade.gif"))))));
+	}
+
+
+
+	private static Matcher<WebElement> hasSrc(Matcher<String> srcMatcher) {
+		return hasAttribute("src","src", srcMatcher);
+	}
+
+	private static Matcher<WebElement> hasTitle(Matcher<String> titleMatcher) {
+		return hasAttribute("title", "title", titleMatcher);
+	}
+
+	private static Matcher<WebElement> hasHref(Matcher<String> stringMatcher) {
+		return hasAttribute("href", "href", stringMatcher);
+	}
+
 	@Test public void
 	complainsOfUnCheckedCheckbox(){
 		

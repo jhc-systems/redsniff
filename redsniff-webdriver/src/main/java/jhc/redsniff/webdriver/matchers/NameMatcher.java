@@ -15,9 +15,11 @@
  *******************************************************************************/
 package jhc.redsniff.webdriver.matchers;
 
-import static jhc.redsniff.webdriver.matchers.AttributeMatcher.hasAttribute;
+import static jhc.redsniff.internal.util.MatcherToLiteralConverter.literalStringFrom;
+import static jhc.redsniff.webdriver.matchers.SimpleAttributeMatcher.hasSimpleAttribute;
 import jhc.redsniff.internal.locators.MatcherLocator;
 
+import jhc.redsniff.internal.matchers.StringMatcher;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
 import org.openqa.selenium.By;
@@ -26,12 +28,13 @@ import org.openqa.selenium.WebElement;
 
 public class NameMatcher extends MatcherByLocator {
 
+    private static final int specificity = Specifities.specifityOf(NameMatcher.class);
     public NameMatcher(Matcher<String> nameMatcher) {
-        super(nameMatcher);
+        super(wrapMatcher(nameMatcher));
     }
 
     public NameMatcher(String literalAttribute) {
-        super(literalAttribute);
+        super(wrapMatcher(StringMatcher.isString(literalAttribute)),literalAttribute);
     }
 
     @Override
@@ -44,9 +47,8 @@ public class NameMatcher extends MatcherByLocator {
         return By.name(literalName);
     }
 
-    @Override
-    public Matcher<WebElement> getWrappedMatcher(Matcher<String> nameMatcher) {
-        return hasAttribute("name",  nameMatcher);
+    private static Matcher<WebElement> wrapMatcher(Matcher<String> nameMatcher) {
+        return hasSimpleAttribute("name",  nameMatcher);
     }
 
     @Factory
@@ -56,12 +58,15 @@ public class NameMatcher extends MatcherByLocator {
 
     @Factory
     public static Matcher<WebElement> hasName(Matcher<String> valueMatcher) {
-        return new NameMatcher(valueMatcher);
+        String literal = literalStringFrom(valueMatcher);
+        return literal == null
+                ? new NameMatcher(valueMatcher)
+                : hasName(literal);
     }
 
 	@Override
 	public int specifity() {
-		return 95;
+		return specificity;
 	}
 
 }

@@ -30,9 +30,9 @@ import org.openqa.selenium.WebElement;
 public class TagNameMatcher extends MatcherByLocator {
 
     private final String tagName;
-
+    private static final int specificity = Specifities.specifityOf(TagNameMatcher.class);
     public TagNameMatcher(String tagName) {
-        super(tagName);
+        super(wrapMatcher(tagName), tagName);
         this.tagName = tagName;
     }
 
@@ -46,8 +46,8 @@ public class TagNameMatcher extends MatcherByLocator {
         return By.tagName(literalTagname);
     }
 
-    @Override
-    public Matcher<WebElement> getWrappedMatcher(Matcher<String> stringMatcher) {
+
+    private static Matcher<WebElement> wrapMatcher(final String tagName) {
         return new TypeSafeDiagnosingMatcher<WebElement>() {
 
             @Override
@@ -75,7 +75,7 @@ public class TagNameMatcher extends MatcherByLocator {
 
     @Override
     public int specifity() {
-    	return 90;
+    	return specificity;
     }
     
     @Factory

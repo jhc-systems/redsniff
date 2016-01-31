@@ -16,7 +16,7 @@
 package jhc.redsniff.webdriver.matchers;
 
 import static jhc.redsniff.webdriver.WebDriverMatchers.isString;
-import static jhc.redsniff.webdriver.matchers.AttributeMatcher.hasAttribute;
+import static jhc.redsniff.webdriver.matchers.SimpleAttributeMatcher.hasSimpleAttribute;
 import static org.hamcrest.core.DescribedAs.describedAs;
 import jhc.redsniff.internal.locators.MatcherLocator;
 import jhc.redsniff.internal.matchers.CheckAndDiagnoseTogetherMatcher;
@@ -31,12 +31,13 @@ import org.openqa.selenium.WebElement;
 
 public class CssClassNameMatcher extends MatcherByLocator {
 
+	private static final int specificity = Specifities.specifityOf(CssClassNameMatcher.class);
     public CssClassNameMatcher(Matcher<String> cssClassNameMatcher) {
-        super(cssClassNameMatcher);
+        super(wrapMatcher(cssClassNameMatcher));
     }
 
     public CssClassNameMatcher(String literalClassName) {
-        super(describedAs("\""+literalClassName+"\"", containsWord(literalClassName)), literalClassName);
+        super(wrapMatcher(describedAs("\""+literalClassName+"\"", containsWord(literalClassName))), literalClassName);
     }
 
     @Override
@@ -49,9 +50,8 @@ public class CssClassNameMatcher extends MatcherByLocator {
         return By.className(literalName);
     }
 
-    @Override
-    public Matcher<WebElement> getWrappedMatcher(Matcher<String> cssClassNameMatcher) {
-        return hasAttribute("class", "css class", cssClassNameMatcher);
+    private static Matcher<WebElement> wrapMatcher(Matcher<String> cssClassNameMatcher) {
+        return hasSimpleAttribute("class", "css class", cssClassNameMatcher);
     }
 
     @Factory
@@ -112,6 +112,6 @@ public class CssClassNameMatcher extends MatcherByLocator {
 
 	@Override
 	public int specifity() {
-		return 91;
+		return specificity;
 	}
 }

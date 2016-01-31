@@ -15,32 +15,21 @@
  *******************************************************************************/
 package jhc.redsniff.webdriver;
 
-import static jhc.redsniff.webdriver.Finders.div;
-import static jhc.redsniff.webdriver.Finders.dropDown;
-import static jhc.redsniff.webdriver.Finders.elementFound;
-import static jhc.redsniff.webdriver.Finders.form;
-import static jhc.redsniff.webdriver.WebDriverMatchers.hasCssClass;
-import static jhc.redsniff.webdriver.WebDriverMatchers.hasId;
-import static jhc.redsniff.webdriver.WebDriverMatchers.hasName;
-import static jhc.redsniff.webdriver.WebDriverMatchers.hasTagName;
-import static jhc.redsniff.webdriver.WebDriverMatchers.hasText;
-import static jhc.redsniff.webdriver.WebDriverMatchers.isString;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.startsWith;
 import jhc.redsniff.core.Describer;
 import jhc.redsniff.core.Finder;
 import jhc.redsniff.core.MFinder;
-import jhc.redsniff.internal.core.CollectionOf;
 import jhc.redsniff.internal.core.Quantity;
-import jhc.redsniff.internal.finders.BaseMFinder;
 import jhc.redsniff.internal.finders.LocatorFinder;
-
 import org.hamcrest.Description;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebElement;
+
+import static jhc.redsniff.webdriver.Finders.*;
+import static jhc.redsniff.webdriver.WebDriverMatchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.startsWith;
 
 public class OptimizationTests {
 
@@ -56,6 +45,14 @@ public class OptimizationTests {
 	public void cantOptimizeWhereNonLiteralUsedForLocator(){
 		assertHasOptimizedDescription(div().that(hasId(startsWith("1"))), 
 				"div that has id a string starting with \"1\"");
+	}
+
+	@Test
+	public void optimizesForAttributeMatches() {
+		final MFinder<WebElement, SearchContext> divUserList = div().that(hasAttribute("data-ref", "user-list"));
+		assertHasDescription(divUserList,"div that has attribute 'data-ref' \"user-list\"");
+		assertHasOptimizedDescription(divUserList, "element with attribute 'data-ref' \"user-list\" that has tagname \"div\""
+		);
 	}
 
 	@Test

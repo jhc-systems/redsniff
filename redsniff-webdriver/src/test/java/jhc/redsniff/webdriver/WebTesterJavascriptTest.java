@@ -45,7 +45,7 @@ public class WebTesterJavascriptTest extends RedsniffTestBase {
 //       t.type("MyPassword", into(passwordField()));
 //       t.clickOn(button("Sign in"));
 //       t.waitFor(presenceOf(link().that(hasText(startsWith("Inbox")))));
-//       WebElement emailRow = t.find(first(tag("tr").that(hasSubElement(span().that(hasAttribute("email", "brenda.granfield@gmail.com"))))));
+//       WebElement emailRow = t.find(first(tag("tr").that(hasSubElement(span().that(hasSimpleAttribute("email", "brenda.granfield@gmail.com"))))));
 //       t.from(emailRow)
 //           .tick(div().that(hasCssClass("T-Jo-auh")));
 //       

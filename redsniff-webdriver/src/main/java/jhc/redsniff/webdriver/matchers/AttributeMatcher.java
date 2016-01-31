@@ -1,12 +1,12 @@
 /*******************************************************************************
  * Copyright 2014 JHC Systems Limited
- *
+ * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p/>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p/>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -15,76 +15,76 @@
  *******************************************************************************/
 package jhc.redsniff.webdriver.matchers;
 
-import static jhc.redsniff.internal.matchers.MatcherUtil.matchAndDiagnose;
-import static jhc.redsniff.internal.matchers.StringMatcher.isString;
-import jhc.redsniff.internal.matchers.CheckAndDiagnoseTogetherMatcher;
-
-import org.hamcrest.Description;
+import jhc.redsniff.internal.locators.MatcherLocator;
+import jhc.redsniff.internal.util.MatcherToLiteralConverter;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
+import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebElement;
+
+import static jhc.redsniff.internal.matchers.StringMatcher.isString;
 
 /**
  *
  */
-public final class AttributeMatcher extends CheckAndDiagnoseTogetherMatcher<WebElement> {
+public final class AttributeMatcher extends MatcherByLocator {
+    private static final int specificity = Specifities.specifityOf(AttributeMatcher.class);
 
-    private final Matcher<String> stringMatcher;
     private final String attribute;
-    private final String attributeDescription;
 
-    private AttributeMatcher(String attribute, Matcher<String> stringMatcher) {
-        this(attribute, attribute, stringMatcher);
-    }
 
-    private AttributeMatcher(String attribute, String attributeDescription, Matcher<String> stringMatcher) {
-        this.stringMatcher = stringMatcher;
+    private AttributeMatcher(String attribute, String attributeDescription, Matcher<String> valueMatcher) {
+        super(SimpleAttributeMatcher.hasSimpleAttribute(attribute, attributeDescription, valueMatcher));
         this.attribute = attribute;
-        this.attributeDescription = attributeDescription;
+    }
+
+    private AttributeMatcher(String attribute, String attributeDescription, String literalValue) {
+        super(SimpleAttributeMatcher.hasSimpleAttribute(attribute, attributeDescription, isString(literalValue)), literalValue);
+        ;
+        this.attribute = attribute;
     }
 
     @Override
-    public void describeTo(Description description) {
-        description.appendText("has " + (attributeDescription == null ? attribute : attributeDescription) + " ");
-        stringMatcher.describeTo(description);
+    public By getByLocator(String literalValue) {
+        return By.cssSelector("[" + attribute + "=" + literalValue + "]");
+    }
+
+    @Factory
+    public static MatcherLocator<WebElement, SearchContext> hasAttribute(String attribute, String literalValue) {
+        return hasAttribute(attribute, descriptionOfAttribute(attribute), literalValue);
+    }
+
+    @Factory
+    public static MatcherLocator<WebElement, SearchContext> hasAttribute(String attribute, String attributeDescription, Matcher<String> valueMatcher) {
+        String literal = MatcherToLiteralConverter.literalStringFrom(valueMatcher);
+        return literal == null
+                ? new AttributeMatcher(attribute, attributeDescription, valueMatcher)
+                : hasAttribute(attribute, attributeDescription, literal);
+    }
+
+    @Factory
+    public static Matcher<WebElement> hasAttribute(String attribute, Matcher<String> valueMatcher) {
+        return new AttributeMatcher(attribute, descriptionOfAttribute(attribute), valueMatcher);
+    }
+
+    @Factory
+    public static MatcherLocator<WebElement, SearchContext> hasAttribute(String attribute, String attributeDescription, String literalValue) {
+        return new AttributeMatcher(attribute, attributeDescription, literalValue);
+    }
+
+    private static String descriptionOfAttribute(String attribute) {
+        return "attribute '" + attribute + "'";
     }
 
     @Override
-    protected boolean matchesSafely(WebElement actual, Description mismatchDescription) {
-
-        String attributeValue = actual.getAttribute(attribute);
-        if(attributeValue==null){
-            mismatchDescription.appendText("did not have a " + (attributeDescription == null ? attribute : attributeDescription + "(" + attribute +")"));
-            return false;
-        }
-            
-        return matchAndDiagnose(stringMatcher, attributeValue, mismatchDescription, attribute + " ");
+    public String nameOfAttributeUsed() {
+        return "attribute '" + attribute + "'";
     }
 
-    @Factory
-    public static Matcher<WebElement> hasAttribute(String attribute, Matcher<String> stringMatcher) {
-        return new AttributeMatcher(attribute, stringMatcher);
-    }
-
-    @Factory
-    public static Matcher<WebElement> hasAttribute(String attribute, String attributeDescription,
-            Matcher<String> stringMatcher) {
-        return new AttributeMatcher(attribute, attributeDescription, stringMatcher);
-    }
-
-    @Factory
-    public static Matcher<WebElement> hasAttribute(String attribute, String text) {
-        return hasAttribute(attribute, isString(text));
-    }
-
-    @Factory
-    public static Matcher<WebElement> hasValue(String value) {
-        return hasValue(isString(value));
-    }
-
-    @Factory
-    public static Matcher<WebElement> hasValue(Matcher<String> valueMatcher) {
-        return hasAttribute("value", valueMatcher);
+    @Override
+    public int specifity() {
+        return specificity;
     }
 
 }
