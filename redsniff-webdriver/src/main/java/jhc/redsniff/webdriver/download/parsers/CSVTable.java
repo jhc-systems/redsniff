@@ -15,22 +15,20 @@
  *******************************************************************************/
 package jhc.redsniff.webdriver.download.parsers;
 
-import static jhc.redsniff.internal.finders.OnlyFinder.only;
-import static jhc.redsniff.webdriver.Finders.tableElement;
+import com.gargoylesoftware.htmlunit.BrowserVersion;
+import jhc.redsniff.html.tables.Table;
+import jhc.redsniff.html.tables.converters.csv.CsvToHtmlFileConverter;
+import jhc.redsniff.webdriver.Download;
+import jhc.redsniff.webdriver.RedsniffWebDriverTester;
+import jhc.redsniff.webdriver.download.DownloadFactory;
+import org.hamcrest.Description;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import java.io.File;
 import java.io.IOException;
 
-import jhc.redsniff.html.tables.Table;
-import jhc.redsniff.html.tables.converters.csv.CsvToHtmlFileConverter;
-import jhc.redsniff.internal.util.NonLoggingHtmlUnitDriver;
-import jhc.redsniff.webdriver.Download;
-import jhc.redsniff.webdriver.RedsniffWebDriverTester;
-import jhc.redsniff.webdriver.download.DownloadFactory;
-
-import org.hamcrest.Description;
-
-import com.gargoylesoftware.htmlunit.BrowserVersion;
+import static jhc.redsniff.internal.finders.OnlyFinder.only;
+import static jhc.redsniff.webdriver.Finders.tableElement;
 
 
 /**
@@ -48,7 +46,7 @@ public class CSVTable extends Download<Table>{
         this.csvFile = csvFile;
         if(!csvFile.exists())
             throw new AssertionError(csvFile.getAbsolutePath() + " does not exist");
-        csvTester = new RedsniffWebDriverTester(new NonLoggingHtmlUnitDriver(BrowserVersion.FIREFOX_17));
+        csvTester = new RedsniffWebDriverTester(new HtmlUnitDriver(BrowserVersion.FIREFOX_38));
     }
 
     @Override

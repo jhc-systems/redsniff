@@ -55,12 +55,12 @@ public abstract class SeleniumTesterFactory {
 
 	@SuppressWarnings("deprecation")
     private BrowserVersion getHtmlUnitBrowserVersion() {
-		if (htmlUnitBrowserVersion.equals("FIREFOX_3_6"))
-			return BrowserVersion.FIREFOX_3_6;
-		else if(htmlUnitBrowserVersion.equals("FIREFOX_10"))
-			return BrowserVersion.FIREFOX_10;
-		else if(htmlUnitBrowserVersion.equals("FIREFOX_17"))
-            return BrowserVersion.FIREFOX_17;
+		if (htmlUnitBrowserVersion.equals("FIREFOX_38"))
+			return BrowserVersion.FIREFOX_38;
+//		else if(htmlUnitBrowserVersion.equals("FIREFOX_10"))
+//			return BrowserVersion.FIREFOX_10;
+//		else if(htmlUnitBrowserVersion.equals("FIREFOX_17"))
+//            return BrowserVersion.FIREFOX_17;
 		else if(htmlUnitBrowserVersion.equals("CHROME"))
             return BrowserVersion.CHROME;
 		else if(htmlUnitBrowserVersion.equals("INTERNET_EXPLORER_8"))

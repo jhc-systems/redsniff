@@ -15,16 +15,7 @@
  *******************************************************************************/
 package jhc.redsniff.webdriver.factory;
 
-import static java.util.concurrent.TimeUnit.SECONDS;
-import static org.hamcrest.Matchers.instanceOf;
-
-import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
-
-import jhc.redsniff.internal.util.NonLoggingHtmlUnitDriver;
-
+import com.gargoylesoftware.htmlunit.BrowserVersion;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.Capabilities;
@@ -37,7 +28,12 @@ import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Duration;
 
-import com.gargoylesoftware.htmlunit.BrowserVersion;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 public final class WebDriverFactory {
 
@@ -74,7 +70,7 @@ public final class WebDriverFactory {
             } else if (driverMode.equals(BrowserType.CHROME)) {
                 driver=new ChromeDriver();
             } else if (driverMode.equals(BrowserType.HTMLUNIT)) {
-                HtmlUnitDriver htmlUnitdriver = new NonLoggingHtmlUnitDriver(BrowserVersion.FIREFOX_17);
+                HtmlUnitDriver htmlUnitdriver = new HtmlUnitDriver(BrowserVersion.FIREFOX_38);
                 htmlUnitdriver.setJavascriptEnabled(true);
                 driver=htmlUnitdriver;
             } else {
