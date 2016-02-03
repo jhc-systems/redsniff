@@ -1,7 +1,8 @@
 redsniff
 ========
 [![Build Status](https://travis-ci.org/jhc-systems/redsniff.svg?branch=master)](https://travis-ci.org/jhc-systems/redsniff)
-[![codecov.io](https://codecov.io/github/jhc-systems/redsniff/coverage.svg?branch=master)](https://codecov.io/github/jhc-systems/redsniff?branch=master)
+
+
 A fluent, feedback-rich API for WebDriver or other similar libraries
 
 redsniff is a thin higher-level API on top of [Selenium Webdriver](http://code.google.com/p/selenium/wiki/GettingStarted) that integrates with [hamcrest](http://code.google.com/p/hamcrest/wiki/Tutorial) to enable writing expressive, effective automated tests for interacting with, and making assertions against websites. 
