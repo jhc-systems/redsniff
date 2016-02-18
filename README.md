@@ -1,5 +1,7 @@
 redsniff
 ========
+
+[![Join the chat at https://gitter.im/jhc-systems/redsniff](https://badges.gitter.im/jhc-systems/redsniff.svg)](https://gitter.im/jhc-systems/redsniff?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/jhc-systems/redsniff.svg?branch=master)](https://travis-ci.org/jhc-systems/redsniff)
 
 
